@@ -1,0 +1,1238 @@
+var drg = [
+  {
+    "DRG Definition": "039 - EXTRACRANIAL PROCEDURES W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "057 - DEGENERATIVE NERVOUS SYSTEM DISORDERS W/O MCC"
+  },
+  {
+    "DRG Definition": "064 - INTRACRANIAL HEMORRHAGE OR CEREBRAL INFARCTION W MCC"
+  },
+  {
+    "DRG Definition": "065 - INTRACRANIAL HEMORRHAGE OR CEREBRAL INFARCTION W CC OR TPA IN 24 HRS"
+  },
+  {
+    "DRG Definition": "066 - INTRACRANIAL HEMORRHAGE OR CEREBRAL INFARCTION W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "069 - TRANSIENT ISCHEMIA"
+  },
+  {
+    "DRG Definition": "074 - CRANIAL & PERIPHERAL NERVE DISORDERS W/O MCC"
+  },
+  {
+    "DRG Definition": "101 - SEIZURES W/O MCC"
+  },
+  {
+    "DRG Definition": "149 - DYSEQUILIBRIUM"
+  },
+  {
+    "DRG Definition": "176 - PULMONARY EMBOLISM W/O MCC"
+  },
+  {
+    "DRG Definition": "177 - RESPIRATORY INFECTIONS & INFLAMMATIONS W MCC"
+  },
+  {
+    "DRG Definition": "178 - RESPIRATORY INFECTIONS & INFLAMMATIONS W CC"
+  },
+  {
+    "DRG Definition": "189 - PULMONARY EDEMA & RESPIRATORY FAILURE"
+  },
+  {
+    "DRG Definition": "190 - CHRONIC OBSTRUCTIVE PULMONARY DISEASE W MCC"
+  },
+  {
+    "DRG Definition": "191 - CHRONIC OBSTRUCTIVE PULMONARY DISEASE W CC"
+  },
+  {
+    "DRG Definition": "192 - CHRONIC OBSTRUCTIVE PULMONARY DISEASE W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "193 - SIMPLE PNEUMONIA & PLEURISY W MCC"
+  },
+  {
+    "DRG Definition": "194 - SIMPLE PNEUMONIA & PLEURISY W CC"
+  },
+  {
+    "DRG Definition": "195 - SIMPLE PNEUMONIA & PLEURISY W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "202 - BRONCHITIS & ASTHMA W CC/MCC"
+  },
+  {
+    "DRG Definition": "203 - BRONCHITIS & ASTHMA W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "207 - RESPIRATORY SYSTEM DIAGNOSIS W VENTILATOR SUPPORT 96+ HOURS"
+  },
+  {
+    "DRG Definition": "208 - RESPIRATORY SYSTEM DIAGNOSIS W VENTILATOR SUPPORT <96 HOURS"
+  },
+  {
+    "DRG Definition": "238 - MAJOR CARDIOVASC PROCEDURES W/O MCC"
+  },
+  {
+    "DRG Definition": "243 - PERMANENT CARDIAC PACEMAKER IMPLANT W CC"
+  },
+  {
+    "DRG Definition": "244 - PERMANENT CARDIAC PACEMAKER IMPLANT W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "246 - PERC CARDIOVASC PROC W DRUG-ELUTING STENT W MCC OR 4+ VESSELS/STENTS"
+  },
+  {
+    "DRG Definition": "247 - PERC CARDIOVASC PROC W DRUG-ELUTING STENT W/O MCC"
+  },
+  {
+    "DRG Definition": "249 - PERC CARDIOVASC PROC W NON-DRUG-ELUTING STENT W/O MCC"
+  },
+  {
+    "DRG Definition": "251 - PERC CARDIOVASC PROC W/O CORONARY ARTERY STENT W/O MCC"
+  },
+  {
+    "DRG Definition": "252 - OTHER VASCULAR PROCEDURES W MCC"
+  },
+  {
+    "DRG Definition": "253 - OTHER VASCULAR PROCEDURES W CC"
+  },
+  {
+    "DRG Definition": "254 - OTHER VASCULAR PROCEDURES W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "280 - ACUTE MYOCARDIAL INFARCTION, DISCHARGED ALIVE W MCC"
+  },
+  {
+    "DRG Definition": "281 - ACUTE MYOCARDIAL INFARCTION, DISCHARGED ALIVE W CC"
+  },
+  {
+    "DRG Definition": "282 - ACUTE MYOCARDIAL INFARCTION, DISCHARGED ALIVE W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "286 - CIRCULATORY DISORDERS EXCEPT AMI, W CARD CATH W MCC"
+  },
+  {
+    "DRG Definition": "287 - CIRCULATORY DISORDERS EXCEPT AMI, W CARD CATH W/O MCC"
+  },
+  {
+    "DRG Definition": "291 - HEART FAILURE & SHOCK W MCC"
+  },
+  {
+    "DRG Definition": "292 - HEART FAILURE & SHOCK W CC"
+  },
+  {
+    "DRG Definition": "293 - HEART FAILURE & SHOCK W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "300 - PERIPHERAL VASCULAR DISORDERS W CC"
+  },
+  {
+    "DRG Definition": "301 - PERIPHERAL VASCULAR DISORDERS W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "303 - ATHEROSCLEROSIS W/O MCC"
+  },
+  {
+    "DRG Definition": "305 - HYPERTENSION W/O MCC"
+  },
+  {
+    "DRG Definition": "308 - CARDIAC ARRHYTHMIA & CONDUCTION DISORDERS W MCC"
+  },
+  {
+    "DRG Definition": "309 - CARDIAC ARRHYTHMIA & CONDUCTION DISORDERS W CC"
+  },
+  {
+    "DRG Definition": "310 - CARDIAC ARRHYTHMIA & CONDUCTION DISORDERS W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "312 - SYNCOPE & COLLAPSE"
+  },
+  {
+    "DRG Definition": "313 - CHEST PAIN"
+  },
+  {
+    "DRG Definition": "314 - OTHER CIRCULATORY SYSTEM DIAGNOSES W MCC"
+  },
+  {
+    "DRG Definition": "315 - OTHER CIRCULATORY SYSTEM DIAGNOSES W CC"
+  },
+  {
+    "DRG Definition": "329 - MAJOR SMALL & LARGE BOWEL PROCEDURES W MCC"
+  },
+  {
+    "DRG Definition": "330 - MAJOR SMALL & LARGE BOWEL PROCEDURES W CC"
+  },
+  {
+    "DRG Definition": "372 - MAJOR GASTROINTESTINAL DISORDERS & PERITONEAL INFECTIONS W CC"
+  },
+  {
+    "DRG Definition": "377 - G.I. HEMORRHAGE W MCC"
+  },
+  {
+    "DRG Definition": "378 - G.I. HEMORRHAGE W CC"
+  },
+  {
+    "DRG Definition": "379 - G.I. HEMORRHAGE W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "389 - G.I. OBSTRUCTION W CC"
+  },
+  {
+    "DRG Definition": "390 - G.I. OBSTRUCTION W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "391 - ESOPHAGITIS, GASTROENT & MISC DIGEST DISORDERS W MCC"
+  },
+  {
+    "DRG Definition": "392 - ESOPHAGITIS, GASTROENT & MISC DIGEST DISORDERS W/O MCC"
+  },
+  {
+    "DRG Definition": "394 - OTHER DIGESTIVE SYSTEM DIAGNOSES W CC"
+  },
+  {
+    "DRG Definition": "418 - LAPAROSCOPIC CHOLECYSTECTOMY W/O C.D.E. W CC"
+  },
+  {
+    "DRG Definition": "419 - LAPAROSCOPIC CHOLECYSTECTOMY W/O C.D.E. W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "439 - DISORDERS OF PANCREAS EXCEPT MALIGNANCY W CC"
+  },
+  {
+    "DRG Definition": "460 - SPINAL FUSION EXCEPT CERVICAL W/O MCC"
+  },
+  {
+    "DRG Definition": "469 - MAJOR JOINT REPLACEMENT OR REATTACHMENT OF LOWER EXTREMITY W MCC"
+  },
+  {
+    "DRG Definition": "470 - MAJOR JOINT REPLACEMENT OR REATTACHMENT OF LOWER EXTREMITY W/O MCC"
+  },
+  {
+    "DRG Definition": "473 - CERVICAL SPINAL FUSION W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "480 - HIP & FEMUR PROCEDURES EXCEPT MAJOR JOINT W MCC"
+  },
+  {
+    "DRG Definition": "481 - HIP & FEMUR PROCEDURES EXCEPT MAJOR JOINT W CC"
+  },
+  {
+    "DRG Definition": "482 - HIP & FEMUR PROCEDURES EXCEPT MAJOR JOINT W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "491 - BACK & NECK PROC EXC SPINAL FUSION W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "536 - FRACTURES OF HIP & PELVIS W/O MCC"
+  },
+  {
+    "DRG Definition": "552 - MEDICAL BACK PROBLEMS W/O MCC"
+  },
+  {
+    "DRG Definition": "602 - CELLULITIS W MCC"
+  },
+  {
+    "DRG Definition": "603 - CELLULITIS W/O MCC"
+  },
+  {
+    "DRG Definition": "638 - DIABETES W CC"
+  },
+  {
+    "DRG Definition": "640 - MISC DISORDERS OF NUTRITION,METABOLISM,FLUIDS/ELECTROLYTES W MCC"
+  },
+  {
+    "DRG Definition": "641 - MISC DISORDERS OF NUTRITION,METABOLISM,FLUIDS/ELECTROLYTES W/O MCC"
+  },
+  {
+    "DRG Definition": "682 - RENAL FAILURE W MCC"
+  },
+  {
+    "DRG Definition": "683 - RENAL FAILURE W CC"
+  },
+  {
+    "DRG Definition": "684 - RENAL FAILURE W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "689 - KIDNEY & URINARY TRACT INFECTIONS W MCC"
+  },
+  {
+    "DRG Definition": "690 - KIDNEY & URINARY TRACT INFECTIONS W/O MCC"
+  },
+  {
+    "DRG Definition": "698 - OTHER KIDNEY & URINARY TRACT DIAGNOSES W MCC"
+  },
+  {
+    "DRG Definition": "699 - OTHER KIDNEY & URINARY TRACT DIAGNOSES W CC"
+  },
+  {
+    "DRG Definition": "811 - RED BLOOD CELL DISORDERS W MCC"
+  },
+  {
+    "DRG Definition": "812 - RED BLOOD CELL DISORDERS W/O MCC"
+  },
+  {
+    "DRG Definition": "853 - INFECTIOUS & PARASITIC DISEASES W O.R. PROCEDURE W MCC"
+  },
+  {
+    "DRG Definition": "870 - SEPTICEMIA OR SEVERE SEPSIS W MV 96+ HOURS"
+  },
+  {
+    "DRG Definition": "871 - SEPTICEMIA OR SEVERE SEPSIS W/O MV 96+ HOURS W MCC"
+  },
+  {
+    "DRG Definition": "872 - SEPTICEMIA OR SEVERE SEPSIS W/O MV 96+ HOURS W/O MCC"
+  },
+  {
+    "DRG Definition": "885 - PSYCHOSES"
+  },
+  {
+    "DRG Definition": "897 - ALCOHOL/DRUG ABUSE OR DEPENDENCE W/O REHABILITATION THERAPY W/O MCC"
+  },
+  {
+    "DRG Definition": "917 - POISONING & TOXIC EFFECTS OF DRUGS W MCC"
+  },
+  {
+    "DRG Definition": "918 - POISONING & TOXIC EFFECTS OF DRUGS W/O MCC"
+  },
+  {
+    "DRG Definition": "948 - SIGNS & SYMPTOMS W/O MCC"
+  },
+  {
+    "DRG Definition": "331 - MAJOR SMALL & LARGE BOWEL PROCEDURES W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "371 - MAJOR GASTROINTESTINAL DISORDERS & PERITONEAL INFECTIONS W MCC"
+  },
+  {
+    "DRG Definition": "100 - SEIZURES W MCC"
+  },
+  {
+    "DRG Definition": "467 - REVISION OF HIP OR KNEE REPLACEMENT W CC"
+  },
+  {
+    "DRG Definition": "484 - MAJOR JOINT & LIMB REATTACHMENT PROC OF UPPER EXTREMITY W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "637 - DIABETES W MCC"
+  },
+  {
+    "DRG Definition": "001 - HEART TRANSPLANT OR IMPLANT OF HEART ASSIST SYSTEM W MCC"
+  },
+  {
+    "DRG Definition": "003 - ECMO OR TRACH W MV 96+ HRS OR PDX EXC FACE, MOUTH & NECK W MAJ O.R."
+  },
+  {
+    "DRG Definition": "004 - TRACH W MV 96+ HRS OR PDX EXC FACE, MOUTH & NECK W/O MAJ O.R."
+  },
+  {
+    "DRG Definition": "005 - LIVER TRANSPLANT W MCC OR INTESTINAL TRANSPLANT"
+  },
+  {
+    "DRG Definition": "011 - TRACHEOSTOMY FOR FACE,MOUTH & NECK DIAGNOSES W MCC"
+  },
+  {
+    "DRG Definition": "012 - TRACHEOSTOMY FOR FACE,MOUTH & NECK DIAGNOSES W CC"
+  },
+  {
+    "DRG Definition": "013 - TRACHEOSTOMY FOR FACE,MOUTH & NECK DIAGNOSES W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "014 - ALLOGENEIC BONE MARROW TRANSPLANT"
+  },
+  {
+    "DRG Definition": "016 - AUTOLOGOUS BONE MARROW TRANSPLANT W CC/MCC"
+  },
+  {
+    "DRG Definition": "023 - CRANIO W MAJOR DEV IMPL/ACUTE COMPLEX CNS PDX W MCC OR CHEMO IMPLANT"
+  },
+  {
+    "DRG Definition": "024 - CRANIO W MAJOR DEV IMPL/ACUTE COMPLEX CNS PDX W/O MCC"
+  },
+  {
+    "DRG Definition": "025 - CRANIOTOMY & ENDOVASCULAR INTRACRANIAL PROCEDURES W MCC"
+  },
+  {
+    "DRG Definition": "026 - CRANIOTOMY & ENDOVASCULAR INTRACRANIAL PROCEDURES W CC"
+  },
+  {
+    "DRG Definition": "027 - CRANIOTOMY & ENDOVASCULAR INTRACRANIAL PROCEDURES W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "029 - SPINAL PROCEDURES W CC OR SPINAL NEUROSTIMULATORS"
+  },
+  {
+    "DRG Definition": "030 - SPINAL PROCEDURES W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "032 - VENTRICULAR SHUNT PROCEDURES W CC"
+  },
+  {
+    "DRG Definition": "033 - VENTRICULAR SHUNT PROCEDURES W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "037 - EXTRACRANIAL PROCEDURES W MCC"
+  },
+  {
+    "DRG Definition": "038 - EXTRACRANIAL PROCEDURES W CC"
+  },
+  {
+    "DRG Definition": "040 - PERIPH/CRANIAL NERVE & OTHER NERV SYST PROC W MCC"
+  },
+  {
+    "DRG Definition": "041 - PERIPH/CRANIAL NERVE & OTHER NERV SYST PROC W CC OR PERIPH NEUROSTIM"
+  },
+  {
+    "DRG Definition": "042 - PERIPH/CRANIAL NERVE & OTHER NERV SYST PROC W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "054 - NERVOUS SYSTEM NEOPLASMS W MCC"
+  },
+  {
+    "DRG Definition": "055 - NERVOUS SYSTEM NEOPLASMS W/O MCC"
+  },
+  {
+    "DRG Definition": "056 - DEGENERATIVE NERVOUS SYSTEM DISORDERS W MCC"
+  },
+  {
+    "DRG Definition": "062 - ACUTE ISCHEMIC STROKE W USE OF THROMBOLYTIC AGENT W CC"
+  },
+  {
+    "DRG Definition": "068 - NONSPECIFIC CVA & PRECEREBRAL OCCLUSION W/O INFARCT W/O MCC"
+  },
+  {
+    "DRG Definition": "070 - NONSPECIFIC CEREBROVASCULAR DISORDERS W MCC"
+  },
+  {
+    "DRG Definition": "071 - NONSPECIFIC CEREBROVASCULAR DISORDERS W CC"
+  },
+  {
+    "DRG Definition": "073 - CRANIAL & PERIPHERAL NERVE DISORDERS W MCC"
+  },
+  {
+    "DRG Definition": "081 - NONTRAUMATIC STUPOR & COMA W/O MCC"
+  },
+  {
+    "DRG Definition": "082 - TRAUMATIC STUPOR & COMA, COMA >1 HR W MCC"
+  },
+  {
+    "DRG Definition": "083 - TRAUMATIC STUPOR & COMA, COMA >1 HR W CC"
+  },
+  {
+    "DRG Definition": "085 - TRAUMATIC STUPOR & COMA, COMA <1 HR W MCC"
+  },
+  {
+    "DRG Definition": "086 - TRAUMATIC STUPOR & COMA, COMA <1 HR W CC"
+  },
+  {
+    "DRG Definition": "087 - TRAUMATIC STUPOR & COMA, COMA <1 HR W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "091 - OTHER DISORDERS OF NERVOUS SYSTEM W MCC"
+  },
+  {
+    "DRG Definition": "092 - OTHER DISORDERS OF NERVOUS SYSTEM W CC"
+  },
+  {
+    "DRG Definition": "093 - OTHER DISORDERS OF NERVOUS SYSTEM W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "103 - HEADACHES W/O MCC"
+  },
+  {
+    "DRG Definition": "115 - EXTRAOCULAR PROCEDURES EXCEPT ORBIT"
+  },
+  {
+    "DRG Definition": "116 - INTRAOCULAR PROCEDURES W CC/MCC"
+  },
+  {
+    "DRG Definition": "117 - INTRAOCULAR PROCEDURES W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "133 - OTHER EAR, NOSE, MOUTH & THROAT O.R. PROCEDURES W CC/MCC"
+  },
+  {
+    "DRG Definition": "134 - OTHER EAR, NOSE, MOUTH & THROAT O.R. PROCEDURES W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "139 - SALIVARY GLAND PROCEDURES"
+  },
+  {
+    "DRG Definition": "153 - OTITIS MEDIA & URI W/O MCC"
+  },
+  {
+    "DRG Definition": "163 - MAJOR CHEST PROCEDURES W MCC"
+  },
+  {
+    "DRG Definition": "164 - MAJOR CHEST PROCEDURES W CC"
+  },
+  {
+    "DRG Definition": "165 - MAJOR CHEST PROCEDURES W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "166 - OTHER RESP SYSTEM O.R. PROCEDURES W MCC"
+  },
+  {
+    "DRG Definition": "167 - OTHER RESP SYSTEM O.R. PROCEDURES W CC"
+  },
+  {
+    "DRG Definition": "168 - OTHER RESP SYSTEM O.R. PROCEDURES W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "175 - PULMONARY EMBOLISM W MCC"
+  },
+  {
+    "DRG Definition": "179 - RESPIRATORY INFECTIONS & INFLAMMATIONS W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "180 - RESPIRATORY NEOPLASMS W MCC"
+  },
+  {
+    "DRG Definition": "181 - RESPIRATORY NEOPLASMS W CC"
+  },
+  {
+    "DRG Definition": "184 - MAJOR CHEST TRAUMA W CC"
+  },
+  {
+    "DRG Definition": "186 - PLEURAL EFFUSION W MCC"
+  },
+  {
+    "DRG Definition": "187 - PLEURAL EFFUSION W CC"
+  },
+  {
+    "DRG Definition": "196 - INTERSTITIAL LUNG DISEASE W MCC"
+  },
+  {
+    "DRG Definition": "197 - INTERSTITIAL LUNG DISEASE W CC"
+  },
+  {
+    "DRG Definition": "200 - PNEUMOTHORAX W CC"
+  },
+  {
+    "DRG Definition": "204 - RESPIRATORY SIGNS & SYMPTOMS"
+  },
+  {
+    "DRG Definition": "205 - OTHER RESPIRATORY SYSTEM DIAGNOSES W MCC"
+  },
+  {
+    "DRG Definition": "206 - OTHER RESPIRATORY SYSTEM DIAGNOSES W/O MCC"
+  },
+  {
+    "DRG Definition": "216 - CARDIAC VALVE & OTH MAJ CARDIOTHORACIC PROC W CARD CATH W MCC"
+  },
+  {
+    "DRG Definition": "217 - CARDIAC VALVE & OTH MAJ CARDIOTHORACIC PROC W CARD CATH W CC"
+  },
+  {
+    "DRG Definition": "218 - CARDIAC VALVE & OTH MAJ CARDIOTHORACIC PROC W CARD CATH W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "219 - CARDIAC VALVE & OTH MAJ CARDIOTHORACIC PROC W/O CARD CATH W MCC"
+  },
+  {
+    "DRG Definition": "220 - CARDIAC VALVE & OTH MAJ CARDIOTHORACIC PROC W/O CARD CATH W CC"
+  },
+  {
+    "DRG Definition": "221 - CARDIAC VALVE & OTH MAJ CARDIOTHORACIC PROC W/O CARD CATH W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "226 - CARDIAC DEFIBRILLATOR IMPLANT W/O CARDIAC CATH W MCC"
+  },
+  {
+    "DRG Definition": "227 - CARDIAC DEFIBRILLATOR IMPLANT W/O CARDIAC CATH W/O MCC"
+  },
+  {
+    "DRG Definition": "229 - OTHER CARDIOTHORACIC PROCEDURES W CC"
+  },
+  {
+    "DRG Definition": "233 - CORONARY BYPASS W CARDIAC CATH W MCC"
+  },
+  {
+    "DRG Definition": "234 - CORONARY BYPASS W CARDIAC CATH W/O MCC"
+  },
+  {
+    "DRG Definition": "235 - CORONARY BYPASS W/O CARDIAC CATH W MCC"
+  },
+  {
+    "DRG Definition": "236 - CORONARY BYPASS W/O CARDIAC CATH W/O MCC"
+  },
+  {
+    "DRG Definition": "237 - MAJOR CARDIOVASC PROCEDURES W MCC"
+  },
+  {
+    "DRG Definition": "239 - AMPUTATION FOR CIRC SYS DISORDERS EXC UPPER LIMB & TOE W MCC"
+  },
+  {
+    "DRG Definition": "240 - AMPUTATION FOR CIRC SYS DISORDERS EXC UPPER LIMB & TOE W CC"
+  },
+  {
+    "DRG Definition": "242 - PERMANENT CARDIAC PACEMAKER IMPLANT W MCC"
+  },
+  {
+    "DRG Definition": "248 - PERC CARDIOVASC PROC W NON-DRUG-ELUTING STENT W MCC OR 4+ VES/STENTS"
+  },
+  {
+    "DRG Definition": "250 - PERC CARDIOVASC PROC W/O CORONARY ARTERY STENT W MCC"
+  },
+  {
+    "DRG Definition": "260 - CARDIAC PACEMAKER REVISION EXCEPT DEVICE REPLACEMENT W MCC"
+  },
+  {
+    "DRG Definition": "261 - CARDIAC PACEMAKER REVISION EXCEPT DEVICE REPLACEMENT W CC"
+  },
+  {
+    "DRG Definition": "264 - OTHER CIRCULATORY SYSTEM O.R. PROCEDURES"
+  },
+  {
+    "DRG Definition": "283 - ACUTE MYOCARDIAL INFARCTION, EXPIRED W MCC"
+  },
+  {
+    "DRG Definition": "299 - PERIPHERAL VASCULAR DISORDERS W MCC"
+  },
+  {
+    "DRG Definition": "304 - HYPERTENSION W MCC"
+  },
+  {
+    "DRG Definition": "306 - CARDIAC CONGENITAL & VALVULAR DISORDERS W MCC"
+  },
+  {
+    "DRG Definition": "307 - CARDIAC CONGENITAL & VALVULAR DISORDERS W/O MCC"
+  },
+  {
+    "DRG Definition": "316 - OTHER CIRCULATORY SYSTEM DIAGNOSES W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "326 - STOMACH, ESOPHAGEAL & DUODENAL PROC W MCC"
+  },
+  {
+    "DRG Definition": "327 - STOMACH, ESOPHAGEAL & DUODENAL PROC W CC"
+  },
+  {
+    "DRG Definition": "328 - STOMACH, ESOPHAGEAL & DUODENAL PROC W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "333 - RECTAL RESECTION W CC"
+  },
+  {
+    "DRG Definition": "334 - RECTAL RESECTION W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "335 - PERITONEAL ADHESIOLYSIS W MCC"
+  },
+  {
+    "DRG Definition": "336 - PERITONEAL ADHESIOLYSIS W CC"
+  },
+  {
+    "DRG Definition": "337 - PERITONEAL ADHESIOLYSIS W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "345 - MINOR SMALL & LARGE BOWEL PROCEDURES W CC"
+  },
+  {
+    "DRG Definition": "354 - HERNIA PROCEDURES EXCEPT INGUINAL & FEMORAL W CC"
+  },
+  {
+    "DRG Definition": "355 - HERNIA PROCEDURES EXCEPT INGUINAL & FEMORAL W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "356 - OTHER DIGESTIVE SYSTEM O.R. PROCEDURES W MCC"
+  },
+  {
+    "DRG Definition": "357 - OTHER DIGESTIVE SYSTEM O.R. PROCEDURES W CC"
+  },
+  {
+    "DRG Definition": "373 - MAJOR GASTROINTESTINAL DISORDERS & PERITONEAL INFECTIONS W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "374 - DIGESTIVE MALIGNANCY W MCC"
+  },
+  {
+    "DRG Definition": "375 - DIGESTIVE MALIGNANCY W CC"
+  },
+  {
+    "DRG Definition": "381 - COMPLICATED PEPTIC ULCER W CC"
+  },
+  {
+    "DRG Definition": "386 - INFLAMMATORY BOWEL DISEASE W CC"
+  },
+  {
+    "DRG Definition": "388 - G.I. OBSTRUCTION W MCC"
+  },
+  {
+    "DRG Definition": "393 - OTHER DIGESTIVE SYSTEM DIAGNOSES W MCC"
+  },
+  {
+    "DRG Definition": "395 - OTHER DIGESTIVE SYSTEM DIAGNOSES W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "405 - PANCREAS, LIVER & SHUNT PROCEDURES W MCC"
+  },
+  {
+    "DRG Definition": "406 - PANCREAS, LIVER & SHUNT PROCEDURES W CC"
+  },
+  {
+    "DRG Definition": "407 - PANCREAS, LIVER & SHUNT PROCEDURES W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "415 - CHOLECYSTECTOMY EXCEPT BY LAPAROSCOPE W/O C.D.E. W CC"
+  },
+  {
+    "DRG Definition": "416 - CHOLECYSTECTOMY EXCEPT BY LAPAROSCOPE W/O C.D.E. W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "417 - LAPAROSCOPIC CHOLECYSTECTOMY W/O C.D.E. W MCC"
+  },
+  {
+    "DRG Definition": "432 - CIRRHOSIS & ALCOHOLIC HEPATITIS W MCC"
+  },
+  {
+    "DRG Definition": "433 - CIRRHOSIS & ALCOHOLIC HEPATITIS W CC"
+  },
+  {
+    "DRG Definition": "435 - MALIGNANCY OF HEPATOBILIARY SYSTEM OR PANCREAS W MCC"
+  },
+  {
+    "DRG Definition": "436 - MALIGNANCY OF HEPATOBILIARY SYSTEM OR PANCREAS W CC"
+  },
+  {
+    "DRG Definition": "438 - DISORDERS OF PANCREAS EXCEPT MALIGNANCY W MCC"
+  },
+  {
+    "DRG Definition": "440 - DISORDERS OF PANCREAS EXCEPT MALIGNANCY W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "441 - DISORDERS OF LIVER EXCEPT MALIG,CIRR,ALC HEPA W MCC"
+  },
+  {
+    "DRG Definition": "442 - DISORDERS OF LIVER EXCEPT MALIG,CIRR,ALC HEPA W CC"
+  },
+  {
+    "DRG Definition": "444 - DISORDERS OF THE BILIARY TRACT W MCC"
+  },
+  {
+    "DRG Definition": "445 - DISORDERS OF THE BILIARY TRACT W CC"
+  },
+  {
+    "DRG Definition": "446 - DISORDERS OF THE BILIARY TRACT W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "454 - COMBINED ANTERIOR/POSTERIOR SPINAL FUSION W CC"
+  },
+  {
+    "DRG Definition": "455 - COMBINED ANTERIOR/POSTERIOR SPINAL FUSION W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "457 - SPINAL FUS EXC CERV W SPINAL CURV/MALIG/INFEC OR EXT FUS W CC"
+  },
+  {
+    "DRG Definition": "459 - SPINAL FUSION EXCEPT CERVICAL W MCC"
+  },
+  {
+    "DRG Definition": "462 - BILATERAL OR MULTIPLE MAJOR JOINT PROCS OF LOWER EXTREMITY W/O MCC"
+  },
+  {
+    "DRG Definition": "463 - WND DEBRID & SKN GRFT EXC HAND, FOR MUSCULO-CONN TISS DIS W MCC"
+  },
+  {
+    "DRG Definition": "464 - WND DEBRID & SKN GRFT EXC HAND, FOR MUSCULO-CONN TISS DIS W CC"
+  },
+  {
+    "DRG Definition": "465 - WND DEBRID & SKN GRFT EXC HAND, FOR MUSCULO-CONN TISS DIS W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "466 - REVISION OF HIP OR KNEE REPLACEMENT W MCC"
+  },
+  {
+    "DRG Definition": "468 - REVISION OF HIP OR KNEE REPLACEMENT W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "472 - CERVICAL SPINAL FUSION W CC"
+  },
+  {
+    "DRG Definition": "478 - BIOPSIES OF MUSCULOSKELETAL SYSTEM & CONNECTIVE TISSUE W CC"
+  },
+  {
+    "DRG Definition": "483 - MAJOR JOINT/LIMB REATTACHMENT PROCEDURE OF UPPER EXTREMITIES"
+  },
+  {
+    "DRG Definition": "488 - KNEE PROCEDURES W/O PDX OF INFECTION W CC/MCC"
+  },
+  {
+    "DRG Definition": "489 - KNEE PROCEDURES W/O PDX OF INFECTION W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "490 - BACK & NECK PROC EXC SPINAL FUSION W CC/MCC OR DISC DEVICE/NEUROSTIM"
+  },
+  {
+    "DRG Definition": "493 - LOWER EXTREM & HUMER PROC EXCEPT HIP,FOOT,FEMUR W CC"
+  },
+  {
+    "DRG Definition": "494 - LOWER EXTREM & HUMER PROC EXCEPT HIP,FOOT,FEMUR W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "496 - LOCAL EXCISION & REMOVAL INT FIX DEVICES EXC HIP & FEMUR W CC"
+  },
+  {
+    "DRG Definition": "497 - LOCAL EXCISION & REMOVAL INT FIX DEVICES EXC HIP & FEMUR W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "501 - SOFT TISSUE PROCEDURES W CC"
+  },
+  {
+    "DRG Definition": "502 - SOFT TISSUE PROCEDURES W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "504 - FOOT PROCEDURES W CC"
+  },
+  {
+    "DRG Definition": "512 - SHOULDER,ELBOW OR FOREARM PROC,EXC MAJOR JOINT PROC W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "516 - OTHER MUSCULOSKELET SYS & CONN TISS O.R. PROC W CC"
+  },
+  {
+    "DRG Definition": "517 - OTHER MUSCULOSKELET SYS & CONN TISS O.R. PROC W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "540 - OSTEOMYELITIS W CC"
+  },
+  {
+    "DRG Definition": "542 - PATHOLOGICAL FRACTURES & MUSCULOSKELET & CONN TISS MALIG W MCC"
+  },
+  {
+    "DRG Definition": "543 - PATHOLOGICAL FRACTURES & MUSCULOSKELET & CONN TISS MALIG W CC"
+  },
+  {
+    "DRG Definition": "544 - PATHOLOGICAL FRACTURES & MUSCULOSKELET & CONN TISS MALIG W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "545 - CONNECTIVE TISSUE DISORDERS W MCC"
+  },
+  {
+    "DRG Definition": "546 - CONNECTIVE TISSUE DISORDERS W CC"
+  },
+  {
+    "DRG Definition": "551 - MEDICAL BACK PROBLEMS W MCC"
+  },
+  {
+    "DRG Definition": "554 - BONE DISEASES & ARTHROPATHIES W/O MCC"
+  },
+  {
+    "DRG Definition": "555 - SIGNS & SYMPTOMS OF MUSCULOSKELETAL SYSTEM & CONN TISSUE W MCC"
+  },
+  {
+    "DRG Definition": "556 - SIGNS & SYMPTOMS OF MUSCULOSKELETAL SYSTEM & CONN TISSUE W/O MCC"
+  },
+  {
+    "DRG Definition": "558 - TENDONITIS, MYOSITIS & BURSITIS W/O MCC"
+  },
+  {
+    "DRG Definition": "577 - SKIN GRAFT EXC FOR SKIN ULCER OR CELLULITIS W CC"
+  },
+  {
+    "DRG Definition": "580 - OTHER SKIN, SUBCUT TISS & BREAST PROC W CC"
+  },
+  {
+    "DRG Definition": "581 - OTHER SKIN, SUBCUT TISS & BREAST PROC W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "582 - MASTECTOMY FOR MALIGNANCY W CC/MCC"
+  },
+  {
+    "DRG Definition": "583 - MASTECTOMY FOR MALIGNANCY W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "596 - MAJOR SKIN DISORDERS W/O MCC"
+  },
+  {
+    "DRG Definition": "605 - TRAUMA TO THE SKIN, SUBCUT TISS & BREAST W/O MCC"
+  },
+  {
+    "DRG Definition": "607 - MINOR SKIN DISORDERS W/O MCC"
+  },
+  {
+    "DRG Definition": "614 - ADRENAL & PITUITARY PROCEDURES W CC/MCC"
+  },
+  {
+    "DRG Definition": "620 - O.R. PROCEDURES FOR OBESITY W CC"
+  },
+  {
+    "DRG Definition": "621 - O.R. PROCEDURES FOR OBESITY W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "626 - THYROID, PARATHYROID & THYROGLOSSAL PROCEDURES W CC"
+  },
+  {
+    "DRG Definition": "627 - THYROID, PARATHYROID & THYROGLOSSAL PROCEDURES W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "629 - OTHER ENDOCRINE, NUTRIT & METAB O.R. PROC W CC"
+  },
+  {
+    "DRG Definition": "639 - DIABETES W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "643 - ENDOCRINE DISORDERS W MCC"
+  },
+  {
+    "DRG Definition": "644 - ENDOCRINE DISORDERS W CC"
+  },
+  {
+    "DRG Definition": "652 - KIDNEY TRANSPLANT"
+  },
+  {
+    "DRG Definition": "654 - MAJOR BLADDER PROCEDURES W CC"
+  },
+  {
+    "DRG Definition": "655 - MAJOR BLADDER PROCEDURES W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "657 - KIDNEY & URETER PROCEDURES FOR NEOPLASM W CC"
+  },
+  {
+    "DRG Definition": "658 - KIDNEY & URETER PROCEDURES FOR NEOPLASM W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "659 - KIDNEY & URETER PROCEDURES FOR NON-NEOPLASM W MCC"
+  },
+  {
+    "DRG Definition": "660 - KIDNEY & URETER PROCEDURES FOR NON-NEOPLASM W CC"
+  },
+  {
+    "DRG Definition": "661 - KIDNEY & URETER PROCEDURES FOR NON-NEOPLASM W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "668 - TRANSURETHRAL PROCEDURES W MCC"
+  },
+  {
+    "DRG Definition": "669 - TRANSURETHRAL PROCEDURES W CC"
+  },
+  {
+    "DRG Definition": "673 - OTHER KIDNEY & URINARY TRACT PROCEDURES W MCC"
+  },
+  {
+    "DRG Definition": "674 - OTHER KIDNEY & URINARY TRACT PROCEDURES W CC"
+  },
+  {
+    "DRG Definition": "685 - ADMIT FOR RENAL DIALYSIS"
+  },
+  {
+    "DRG Definition": "687 - KIDNEY & URINARY TRACT NEOPLASMS W CC"
+  },
+  {
+    "DRG Definition": "694 - URINARY STONES W/O ESW LITHOTRIPSY W/O MCC"
+  },
+  {
+    "DRG Definition": "696 - KIDNEY & URINARY TRACT SIGNS & SYMPTOMS W/O MCC"
+  },
+  {
+    "DRG Definition": "700 - OTHER KIDNEY & URINARY TRACT DIAGNOSES W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "707 - MAJOR MALE PELVIC PROCEDURES W CC/MCC"
+  },
+  {
+    "DRG Definition": "708 - MAJOR MALE PELVIC PROCEDURES W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "713 - TRANSURETHRAL PROSTATECTOMY W CC/MCC"
+  },
+  {
+    "DRG Definition": "714 - TRANSURETHRAL PROSTATECTOMY W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "728 - INFLAMMATION OF THE MALE REPRODUCTIVE SYSTEM W/O MCC"
+  },
+  {
+    "DRG Definition": "737 - UTERINE & ADNEXA PROC FOR OVARIAN OR ADNEXAL MALIGNANCY W CC"
+  },
+  {
+    "DRG Definition": "740 - UTERINE,ADNEXA PROC FOR NON-OVARIAN/ADNEXAL MALIG W CC"
+  },
+  {
+    "DRG Definition": "741 - UTERINE,ADNEXA PROC FOR NON-OVARIAN/ADNEXAL MALIG W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "742 - UTERINE & ADNEXA PROC FOR NON-MALIGNANCY W CC/MCC"
+  },
+  {
+    "DRG Definition": "743 - UTERINE & ADNEXA PROC FOR NON-MALIGNANCY W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "755 - MALIGNANCY, FEMALE REPRODUCTIVE SYSTEM W CC"
+  },
+  {
+    "DRG Definition": "765 - CESAREAN SECTION W CC/MCC"
+  },
+  {
+    "DRG Definition": "775 - VAGINAL DELIVERY W/O COMPLICATING DIAGNOSES"
+  },
+  {
+    "DRG Definition": "781 - OTHER ANTEPARTUM DIAGNOSES W MEDICAL COMPLICATIONS"
+  },
+  {
+    "DRG Definition": "808 - MAJOR HEMATOL/IMMUN DIAG EXC SICKLE CELL CRISIS & COAGUL W MCC"
+  },
+  {
+    "DRG Definition": "809 - MAJOR HEMATOL/IMMUN DIAG EXC SICKLE CELL CRISIS & COAGUL W CC"
+  },
+  {
+    "DRG Definition": "813 - COAGULATION DISORDERS"
+  },
+  {
+    "DRG Definition": "821 - LYMPHOMA & LEUKEMIA W MAJOR O.R. PROCEDURE W CC"
+  },
+  {
+    "DRG Definition": "822 - LYMPHOMA & LEUKEMIA W MAJOR O.R. PROCEDURE W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "824 - LYMPHOMA & NON-ACUTE LEUKEMIA W OTHER O.R. PROC W CC"
+  },
+  {
+    "DRG Definition": "828 - MYELOPROLIF DISORD OR POORLY DIFF NEOPL W MAJ O.R. PROC W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "834 - ACUTE LEUKEMIA W/O MAJOR O.R. PROCEDURE W MCC"
+  },
+  {
+    "DRG Definition": "835 - ACUTE LEUKEMIA W/O MAJOR O.R. PROCEDURE W CC"
+  },
+  {
+    "DRG Definition": "837 - CHEMO W ACUTE LEUKEMIA AS SDX OR W HIGH DOSE CHEMO AGENT W MCC"
+  },
+  {
+    "DRG Definition": "838 - CHEMO W ACUTE LEUKEMIA AS SDX W CC OR HIGH DOSE CHEMO AGENT"
+  },
+  {
+    "DRG Definition": "839 - CHEMO W ACUTE LEUKEMIA AS SDX W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "840 - LYMPHOMA & NON-ACUTE LEUKEMIA W MCC"
+  },
+  {
+    "DRG Definition": "841 - LYMPHOMA & NON-ACUTE LEUKEMIA W CC"
+  },
+  {
+    "DRG Definition": "842 - LYMPHOMA & NON-ACUTE LEUKEMIA W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "844 - OTHER MYELOPROLIF DIS OR POORLY DIFF NEOPL DIAG W CC"
+  },
+  {
+    "DRG Definition": "846 - CHEMOTHERAPY W/O ACUTE LEUKEMIA AS SECONDARY DIAGNOSIS W MCC"
+  },
+  {
+    "DRG Definition": "847 - CHEMOTHERAPY W/O ACUTE LEUKEMIA AS SECONDARY DIAGNOSIS W CC"
+  },
+  {
+    "DRG Definition": "854 - INFECTIOUS & PARASITIC DISEASES W O.R. PROCEDURE W CC"
+  },
+  {
+    "DRG Definition": "856 - POSTOPERATIVE OR POST-TRAUMATIC INFECTIONS W O.R. PROC W MCC"
+  },
+  {
+    "DRG Definition": "857 - POSTOPERATIVE OR POST-TRAUMATIC INFECTIONS W O.R. PROC W CC"
+  },
+  {
+    "DRG Definition": "862 - POSTOPERATIVE & POST-TRAUMATIC INFECTIONS W MCC"
+  },
+  {
+    "DRG Definition": "863 - POSTOPERATIVE & POST-TRAUMATIC INFECTIONS W/O MCC"
+  },
+  {
+    "DRG Definition": "864 - FEVER"
+  },
+  {
+    "DRG Definition": "866 - VIRAL ILLNESS W/O MCC"
+  },
+  {
+    "DRG Definition": "867 - OTHER INFECTIOUS & PARASITIC DISEASES DIAGNOSES W MCC"
+  },
+  {
+    "DRG Definition": "868 - OTHER INFECTIOUS & PARASITIC DISEASES DIAGNOSES W CC"
+  },
+  {
+    "DRG Definition": "884 - ORGANIC DISTURBANCES & MENTAL RETARDATION"
+  },
+  {
+    "DRG Definition": "894 - ALCOHOL/DRUG ABUSE OR DEPENDENCE, LEFT AMA"
+  },
+  {
+    "DRG Definition": "895 - ALCOHOL/DRUG ABUSE OR DEPENDENCE W REHABILITATION THERAPY"
+  },
+  {
+    "DRG Definition": "896 - ALCOHOL/DRUG ABUSE OR DEPENDENCE W/O REHABILITATION THERAPY W MCC"
+  },
+  {
+    "DRG Definition": "904 - SKIN GRAFTS FOR INJURIES W CC/MCC"
+  },
+  {
+    "DRG Definition": "907 - OTHER O.R. PROCEDURES FOR INJURIES W MCC"
+  },
+  {
+    "DRG Definition": "908 - OTHER O.R. PROCEDURES FOR INJURIES W CC"
+  },
+  {
+    "DRG Definition": "909 - OTHER O.R. PROCEDURES FOR INJURIES W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "919 - COMPLICATIONS OF TREATMENT W MCC"
+  },
+  {
+    "DRG Definition": "920 - COMPLICATIONS OF TREATMENT W CC"
+  },
+  {
+    "DRG Definition": "921 - COMPLICATIONS OF TREATMENT W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "928 - FULL THICKNESS BURN W SKIN GRAFT OR INHAL INJ W CC/MCC"
+  },
+  {
+    "DRG Definition": "929 - FULL THICKNESS BURN W SKIN GRAFT OR INHAL INJ W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "935 - NON-EXTENSIVE BURNS"
+  },
+  {
+    "DRG Definition": "947 - SIGNS & SYMPTOMS W MCC"
+  },
+  {
+    "DRG Definition": "956 - LIMB REATTACHMENT, HIP & FEMUR PROC FOR MULTIPLE SIGNIFICANT TRAUMA"
+  },
+  {
+    "DRG Definition": "964 - OTHER MULTIPLE SIGNIFICANT TRAUMA W CC"
+  },
+  {
+    "DRG Definition": "975 - HIV W MAJOR RELATED CONDITION W CC"
+  },
+  {
+    "DRG Definition": "981 - EXTENSIVE O.R. PROCEDURE UNRELATED TO PRINCIPAL DIAGNOSIS W MCC"
+  },
+  {
+    "DRG Definition": "982 - EXTENSIVE O.R. PROCEDURE UNRELATED TO PRINCIPAL DIAGNOSIS W CC"
+  },
+  {
+    "DRG Definition": "987 - NON-EXTENSIVE O.R. PROC UNRELATED TO PRINCIPAL DIAGNOSIS W MCC"
+  },
+  {
+    "DRG Definition": "988 - NON-EXTENSIVE O.R. PROC UNRELATED TO PRINCIPAL DIAGNOSIS W CC"
+  },
+  {
+    "DRG Definition": "028 - SPINAL PROCEDURES W MCC"
+  },
+  {
+    "DRG Definition": "123 - NEUROLOGICAL EYE DISORDERS"
+  },
+  {
+    "DRG Definition": "129 - MAJOR HEAD & NECK PROCEDURES W CC/MCC OR MAJOR DEVICE"
+  },
+  {
+    "DRG Definition": "152 - OTITIS MEDIA & URI W MCC"
+  },
+  {
+    "DRG Definition": "155 - OTHER EAR, NOSE, MOUTH & THROAT DIAGNOSES W CC"
+  },
+  {
+    "DRG Definition": "158 - DENTAL & ORAL DISEASES W CC"
+  },
+  {
+    "DRG Definition": "183 - MAJOR CHEST TRAUMA W MCC"
+  },
+  {
+    "DRG Definition": "256 - UPPER LIMB & TOE AMPUTATION FOR CIRC SYSTEM DISORDERS W CC"
+  },
+  {
+    "DRG Definition": "266 - ENDOVASCULAR CARDIAC VALVE REPLACEMENT W MCC"
+  },
+  {
+    "DRG Definition": "267 - ENDOVASCULAR CARDIAC VALVE REPLACEMENT W/O MCC"
+  },
+  {
+    "DRG Definition": "346 - MINOR SMALL & LARGE BOWEL PROCEDURES W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "443 - DISORDERS OF LIVER EXCEPT MALIG,CIRR,ALC HEPA W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "453 - COMBINED ANTERIOR/POSTERIOR SPINAL FUSION W MCC"
+  },
+  {
+    "DRG Definition": "458 - SPINAL FUS EXC CERV W SPINAL CURV/MALIG/INFEC OR 9+ FUS W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "475 - AMPUTATION FOR MUSCULOSKELETAL SYS & CONN TISSUE DIS W CC"
+  },
+  {
+    "DRG Definition": "519 - BACK & NECK PROC EXC SPINAL FUSION W CC"
+  },
+  {
+    "DRG Definition": "520 - BACK & NECK PROC EXC SPINAL FUSION W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "535 - FRACTURES OF HIP & PELVIS W MCC"
+  },
+  {
+    "DRG Definition": "547 - CONNECTIVE TISSUE DISORDERS W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "560 - AFTERCARE, MUSCULOSKELETAL SYSTEM & CONNECTIVE TISSUE W CC"
+  },
+  {
+    "DRG Definition": "561 - AFTERCARE, MUSCULOSKELETAL SYSTEM & CONNECTIVE TISSUE W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "562 - FX, SPRN, STRN & DISL EXCEPT FEMUR, HIP, PELVIS & THIGH W MCC"
+  },
+  {
+    "DRG Definition": "593 - SKIN ULCERS W CC"
+  },
+  {
+    "DRG Definition": "606 - MINOR SKIN DISORDERS W MCC"
+  },
+  {
+    "DRG Definition": "615 - ADRENAL & PITUITARY PROCEDURES W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "617 - AMPUTAT OF LOWER LIMB FOR ENDOCRINE,NUTRIT,& METABOL DIS W CC"
+  },
+  {
+    "DRG Definition": "645 - ENDOCRINE DISORDERS W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "656 - KIDNEY & URETER PROCEDURES FOR NEOPLASM W MCC"
+  },
+  {
+    "DRG Definition": "670 - TRANSURETHRAL PROCEDURES W/O CC/MCC"
+  },
+  {
+    "DRG Definition": "726 - BENIGN PROSTATIC HYPERTROPHY W/O MCC"
+  },
+  {
+    "DRG Definition": "744 - D&C, CONIZATION, LAPAROSCOPY & TUBAL INTERRUPTION W CC/MCC"
+  },
+  {
+    "DRG Definition": "774 - VAGINAL DELIVERY W COMPLICATING DIAGNOSES"
+  },
+  {
+    "DRG Definition": "815 - RETICULOENDOTHELIAL & IMMUNITY DISORDERS W CC"
+  },
+  {
+    "DRG Definition": "827 - MYELOPROLIF DISORD OR POORLY DIFF NEOPL W MAJ O.R. PROC W CC"
+  },
+  {
+    "DRG Definition": "829 - MYELOPROLIF DISORD OR POORLY DIFF NEOPL W OTHER O.R. PROC W CC/MCC"
+  },
+  {
+    "DRG Definition": "843 - OTHER MYELOPROLIF DIS OR POORLY DIFF NEOPL DIAG W MCC"
+  },
+  {
+    "DRG Definition": "865 - VIRAL ILLNESS W MCC"
+  },
+  {
+    "DRG Definition": "880 - ACUTE ADJUSTMENT REACTION & PSYCHOSOCIAL DYSFUNCTION"
+  },
+  {
+    "DRG Definition": "963 - OTHER MULTIPLE SIGNIFICANT TRAUMA W MCC"
+  },
+  {
+    "DRG Definition": "974 - HIV W MAJOR RELATED CONDITION W MCC"
+  }
+]

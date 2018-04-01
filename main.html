@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+  <head>
+    <link rel="stylesheet" href="bootstrap.css">
+    <style>
+        #map {
+            height: 50vh;
+            width: 100%;
+        }
+
+        .hospitals, .hospitals svg {
+            position: absolute;
+        }
+
+        .hospitals svg {
+            width: 700px;
+            height: 700px;
+            font: 10px sans-serif;
+        }
+
+        #filters {
+            font: 10px sans-serif;
+        }
+
+        div.tooltip {   
+            position: absolute;         
+            text-align: center;         
+            width: 250px;                    
+            height: 90px;                   
+            padding: 2px;               
+            font: 10px sans-serif;     
+            background: white; 
+            border: 0px;        
+            border-radius: 8px;         
+            pointer-events: none;           
+        }
+
+        .axis text,
+        .timeAxis text,
+        .hospital text,
+        .bartext,
+        #chart {
+          font: 10px sans-serif !important;
+        }
+
+        .timeAxis path,
+        .timeAxis line,
+        .axis path,
+        .axis line {
+          fill: none;
+          stroke: #000;
+          shape-rendering: crispEdges;
+        }
+
+        .bar:hover {
+            fill:steelblue;
+        }
+
+        .x.timeAxis path {
+          display: none;
+        }
+
+        .circle,
+        .bar,
+        .label {
+            cursor: pointer !important;
+            font-weight: bold;
+        }
+
+        .jumbotron {
+            height:100vh;
+            width: 35%;
+            position:fixed;
+            overflow: scroll;
+        }
+
+        .visuals {
+            width:60%;
+            height:auto;
+            position:absolute;
+            right:20px;
+        }
+
+        select {
+            width:100%;
+            overflow:hidden; 
+            white-space:nowrap; 
+            text-overflow: ellipsis;
+        }
+
+        .nicebox {
+          position: absolute;
+          text-align: center;
+          font-family: "Roboto", "Arial", sans-serif;
+          font-size: 13px;
+          z-index: 5;
+          padding: 5px 10px;
+          background: rgb(255,255,255);
+          border: rgb(229, 229, 229) 1px solid;
+        }
+        #controls {
+          bottom:20px;
+          right:20px;
+          width: 360px;
+          height: 45px;
+        }
+
+        #legend { 
+            display: flex; display: -webkit-box; padding-top: 7px 
+        }
+
+        .color-key {
+          background: linear-gradient(to right,
+            hsl(5, 69%, 54%) 0%,
+            hsl(29, 71%, 51%) 17%,
+            hsl(54, 74%, 47%) 33%,
+            hsl(78, 76%, 44%) 50%,
+            hsl(102, 78%, 41%) 67%,
+            hsl(127, 81%, 37%) 83%,
+            hsl(151, 83%, 34%) 100%);
+          flex: 1;
+          -webkit-box-flex: 1;
+          margin: 0 5px;
+          text-align: left;
+          font-size: 1.0em;
+          line-height: 1.0em;
+        }
+
+        #data-caret { 
+            margin-left: -5px; margin-top:2.5px; display: none; font-size: 14px; width: 14px
+        }
+
+        #minLegend {
+            padding-left:10px;
+        }
+
+
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+
+                <div class="jumbotron">
+                    <h1 class="display-4">Boston Providers</h1>
+                    <p class="lead">This is a short collection of visualizations containing various average covered, total, and medicare payments of providers in the Boston area</p>
+                    <p class="lead">These visualizations are interactive. Click on the circles, bars, and line labels to see what happens!</p>
+                    <hr class="my-4">
+
+                    <div id="filters">
+                        <div class="row">
+                            <div class="col-7">
+
+                            <div class="card">
+                            <h5 class="card-header">Provider</h5>
+                            <div class="card-body">
+                                <div id="providers">
+                                    <input type="checkbox" onchange="updateData()" name="Provider" value="MASSACHUSETTS GENERAL HOSPITAL" checked> MASSACHUSETTS GENERAL HOSPITAL<br>
+                                    <input type="checkbox" onchange="updateData()" name="Provider" value="BETH ISRAEL DEACONESS MEDICAL CENTER" checked> BETH ISRAEL DEACONESS MEDICAL CENTER<br>
+                                    <input type="checkbox" onchange="updateData()" name="Provider" value="NEWTON-WELLESLEY HOSPITAL" checked> NEWTON-WELLESLEY HOSPITAL<br>
+                                    <input type="checkbox" onchange="updateData()" name="Provider" value="BRIGHAM AND WOMEN'S HOSPITAL" checked> BRIGHAM AND WOMEN'S HOSPITAL<br>
+                                    <input type="checkbox" onchange="updateData()" name="Provider" value="TUFTS MEDICAL CENTER" checked> TUFTS MEDICAL CENTER<br>
+                                    <input type="checkbox" onchange="updateData()" name="Provider" value="MOUNT AUBURN HOSPITAL" checked> MOUNT AUBURN HOSPITAL<br>
+                                    <input type="checkbox" onchange="updateData()" name="Provider" value="CAMBRIDGE HEALTH ALLIANCE" checked> CAMBRIDGE HEALTH ALLIANCE<br>
+                                    <input type="checkbox" onchange="updateData()" name="Provider" value="CARNEY HOSPITAL" checked> CARNEY HOSPITAL<br>
+                                    <input type="checkbox" onchange="updateData()" name="Provider" value="BOSTON MEDICAL CENTER CORPORATION" checked> BOSTON MEDICAL CENTER CORPORATION<br>
+                                    <input type="checkbox" onchange="updateData()" name="Provider" value="ST ELIZABETH'S MEDICAL CENTER" checked> ST ELIZABETH'S MEDICAL CENTER<br>
+                                    <input type="checkbox" onchange="updateData()" name="Provider" value="FAULKNER HOSPITAL" checked> FAULKNER HOSPITAL<br>
+                                    <input type="checkbox" onchange="updateData()" name="Provider" value="NEW ENGLAND BAPTIST HOSPITAL" checked> NEW ENGLAND BAPTIST HOSPITAL<br>
+                                    <input type="checkbox" onchange="updateData()" name="Provider" value="BRIGHAM AND WOMEN'S FAULKNER HOSPITAL" checked> BRIGHAM AND WOMEN'S FAULKNER HOSPITAL<br>
+                                    <input type="checkbox" onchange="updateData()" name="Provider" value="MASSACHUSETTS EYE AND EAR INFIRMARY" checked> MASSACHUSETTS EYE AND EAR INFIRMARY<br>
+                                </div>
+                            </div>
+                            </div>
+
+                            </div>
+
+                            <div class="col-5">
+                                <div class="card">
+                                <h5 class="card-header">Metric</h5>
+                                <div class="card-body">
+                                    <form>
+                                        <input type="radio"  onchange="updateData()" name="metrics" id="option1" value="Average Covered Charges" checked> Average Covered Charges <br>
+                                        <input type="radio"  onchange="updateData()" name="metrics" id="option2" value="Average Total Payments"> Average Total Payments <br>
+                                        <input type="radio"  onchange="updateData()" name="metrics" id="option3" value="Average Medicare Payments"> Average Medicare Payments <br>
+                                        <input type="radio"  onchange="updateData()" name="metrics" id="option4" value="Total Discharges"> Total Discharges <br>
+                                    </form>
+                                </div>
+                                </div>
+                                <div class="card">
+                                <h5 class="card-header">Year</h5>
+                                <div class="card-body">
+                                    <form>
+                                        <input type="radio" onchange="updateData()" name="year" id="y2011" value="2011"> 2011<br>
+                                        <input type="radio" onchange="updateData()" name="year" id="y2012" value="2012"> 2012<br>
+                                        <input type="radio" onchange="updateData()" name="year" id="y2013" value="2013"> 2013<br>
+                                        <input type="radio" onchange="updateData()" name="year" id="y2014" value="2014"> 2014<br>
+                                        <input type="radio" onchange="updateData()" name="year" id="y2015" value="2015" checked> 2015<br>
+                                    </form>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+
+                                <div class="card">
+                                <h5 class="card-header">DRG List</h5>
+                                <div class="card-body">
+                                    <input type="text" placeholder="Search DRG" id="search" onkeyup="filterFunction(event)">
+                                    <select id="drgs" onchange="updateData()">
+                                    </select>
+                                </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <br><br>
+                    </div>
+                </div>
+
+                <div class="visuals">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                            <h5 class="card-header">Geospatial - Relative Metric Comparison</h5>
+                            <div class="card-body">
+
+                                <div id="controls" class="nicebox">
+                                  <div id="legend">
+                                    <select id="census" onchange="updateCensus()">
+                                        <option name="census" value="income" selected="selected">Income</option>
+                                        <option name="census" value="age">Age</option>
+                                        <option name="census" value="population">Population</option>
+                                    </select>
+                                    <div id="minLegend"></div>
+                                    <div class="color-key"><span id="data-caret">◆</span></div>
+                                    <div id="maxLegend"></div>
+                                  </div>
+                                </div>
+
+                                <div id="map"></div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12" >
+                            <div id="chart">
+                                <div class="card">
+                                <h5 class="card-header">Bar Chart - Providers vs. Metric</h5>
+                                <div class="card-body" id="chartdiv">
+                                    <form>
+                                        <input type="radio" onchange="updateData()" name="sort" id="asc" value="asc"> Ascending
+                                        <input type="radio" onchange="updateData()" name="sort" id="desc" value="desc"> Descending
+                                        <input type="radio" onchange="updateData()" name="sort" id="none" value="none" checked> None
+                                    </form>
+                                    <svg class="chart"></svg>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div id="timeline">
+                                <div class="card" id="chartdiv">
+                                <h5 class="card-header">Line Chart - Providers vs. Metrics Over Time</h5>
+                                <div class="card-body">
+                                    <svg class="linechart"></svg>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+    </div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyByQ9uYj9eS4UkXTHbAOBq2NrGO9ENDnvM"></script>
+    <script src="jquery.js"></script>
+    <script src="bootstrap.js"></script>
+    <script src="d3.js"></script>
+    <script src="mapStyle.js"></script>
+    <script src="drg.js"></script>
+    <script src="topojson.js"></script>
+    <script src="ziptopojson.js"></script>
+    <script src="address.js"></script>
+
+    <script>
+
+        //Coordinates for Massachusetts 
+        initializeFilters();
+        var year = getCheckedBoxes("year")[0];
+        var drg = document.getElementById('drgs').value;
+        var metric = getCheckedBoxes("metrics")[0];
+        var providerList = getCheckedBoxes("Provider");
+        var mass = {lat: 42.361145, lng: -71.057083};
+        var local_avg_discharge = 0;
+        var local_avg_total = 0;
+        var local_avg_covered = 0;
+        var local_avg_medicare = 0;
+        var overlay = new google.maps.OverlayView();
+        var yearArray = ["2011","2012","2013","2014","2015"];
+        var focus = false;
+        var sort = getCheckedBoxes("sort")[0];
+        var maxLegend = 160000;
+        var minLegend = 20000;
+        var origin = '';
+        var destination = '';
+        var directions = false;
+        var censusfeature = document.getElementById('census').value;
+
+        var topo = topojson.feature(bostontopo, bostontopo.objects["ZIP_Codes"]);
+
+        var directionsService = new google.maps.DirectionsService();
+        var directionsDisplay = new google.maps.DirectionsRenderer({
+            polylineOptions: {
+                strokeColor: "steelblue"
+            },
+            preserveViewport: true,
+        });
+        //Call map with parameters
+        var map = new google.maps.Map(d3.select("#map").node(), {
+            zoom: 12,
+            minZoom: 12,
+            maxZoom:15,
+            center: mass,
+            disableDefaultUI: true,
+            styles: mapStyle
+        });
+
+
+
+        //Initialize map boundaries
+        var imageBounds = {
+            north:  42.3748024,
+            south: 42.2774915,
+            east: -70.9078,
+            west: -71.2464373
+        };
+
+        var strictBounds = new google.maps.LatLngBounds(   
+        new google.maps.LatLng(imageBounds.south, imageBounds.west),
+        new google.maps.LatLng(imageBounds.north, imageBounds.east)
+        );
+
+        // Listen for the out of bounds event to restrict users for going out of map bounds
+        google.maps.event.addListener(map,'bounds_changed', function() {
+            if (strictBounds.contains(map.getCenter())) return;
+
+            // We're out of bounds - Move the map back within the bounds
+            var c = map.getCenter(),
+            x = c.lng(),
+            y = c.lat(),
+            maxX = strictBounds.getNorthEast().lng(),
+            maxY = strictBounds.getNorthEast().lat(),
+            minX = strictBounds.getSouthWest().lng(),
+            minY = strictBounds.getSouthWest().lat();
+
+            if (x < minX) x = minX;
+            if (x > maxX) x = maxX;
+            if (y < minY) y = minY;
+            if (y > maxY) y = maxY;
+
+            map.setCenter(new google.maps.LatLng(y, x));
+        });
+
+
+
+
+        //Add zip code boundaries
+        map.data.addGeoJson(topo);
+        //map.data.setStyle(styleFeature);
+        updateCensus();
+        map.data.addListener('mouseover', mouseInToRegion);
+        map.data.addListener('mouseout', mouseOutOfRegion);
+        map.data.addListener('click', function( event ){ 
+            if (directions == false) {
+                drawPath(event);  
+                directions = true;
+
+            }
+            else {
+                directionsDisplay.setMap(null);
+                directions = false;
+            }
+        });
+
+
+
+        //Load Data
+        loadData(year, drg, providerList);
+
+        $(document).ready(function() {
+            $(window).resize(function(){
+                loadData(year, drg, providerList);
+            });
+        });
+
+        //Initialize filter lists
+        function initializeFilters() {
+            var drgDiv = document.getElementById("drgs");
+            var drgItem = '';
+
+            drg.forEach(function(item) {
+                drgItem = '<option name="drg" value="'+item["DRG Definition"]+'">'+item["DRG Definition"]+'</option>';
+
+                if (item["DRG Definition"]=="194 - SIMPLE PNEUMONIA & PLEURISY W CC") {
+                    drgItem = '<option name="drg" value="'+item["DRG Definition"]+'" selected="selected">'+item["DRG Definition"]+'</option>';
+                }
+                drgDiv.innerHTML += drgItem
+            });
+        }
+
+        function transitionData(name) {
+
+            // Set variables
+            var chart = d3.select(".chart").selectAll(".bar");
+            var circles = d3.selectAll("circle");
+            var labels = d3.selectAll(".label");
+            var lines = d3.selectAll(".line");
+
+            var color;
+            var opacity;
+
+            // toggle focus state
+            if (focus == false) {
+                color = "grey";
+                opacity = "0.1";
+                focus = true;
+            }
+            else {
+                color = "#a1c8d7";
+                opacity = "1";
+                focus = false;
+            }
+
+            // Change attributes
+            chart.attr("fill", function(d) {
+                if (d["Provider Name"] == name) {
+                    return '#a1c8d7';
+                }
+                else {
+                    return color;
+                }
+            });
+
+            circles.attr("opacity", function(d) {
+                if (d["Provider Name"] == name) {
+                    return '1';
+                }
+                else {
+                    return opacity;
+                }   
+            });
+
+            lines.attr("opacity", function(d) {
+                if (d.name == name) {
+                    return '1';
+                }
+                else {
+                    return opacity;
+                }   
+            });
+
+            labels.attr("opacity", function(d) {
+                if (d["Provider Name"] == name || d.name == name) {
+                    return '1';
+                }
+                else {
+                    return opacity;
+                }   
+            });
+
+        }
+
+        //Update data function
+        function updateData() {
+            providerList = getCheckedBoxes("Provider");
+            year = getCheckedBoxes("year")[0];
+            drg = document.getElementById('drgs').value;
+            metric = getCheckedBoxes("metrics")[0];
+            sort = getCheckedBoxes("sort")[0];
+            loadData(year,drg,providerList);
+        }
+        //Load json data. When data comes back, create an overlap for google maps
+        function loadData(year, drg, providerList) {
+            focus = false;
+            //Initialize Barchart
+            var width = $( '#chartdiv' ).width();
+            height = $( window ).height()/2;
+            var padding = 100;
+
+            var marginbar = {top: 10, right: 50, bottom: 20, left: 250},
+                widthbar = width - marginbar.left - marginbar.right,
+                heightbar = height - marginbar.top - marginbar.bottom;
+
+            var marginline = {top: 10, right: 250, bottom: 20, left: 50},
+                widthline = width - marginline.left - marginline.right,
+                heightline = height - marginline.top - marginline.bottom;
+
+            var yBar = d3.scale.ordinal()
+                .rangeRoundBands([heightbar, 0], .1);
+
+            var xBar = d3.scale.linear()
+                .range([0, widthbar]);
+
+            var yAxisBar = d3.svg.axis()
+                .scale(yBar)
+                .tickSize(0)
+                .orient("left");
+
+            var xAxisBar = d3.svg.axis()
+                .scale(xBar)
+                .orient("bottom");
+
+            //Initialize Timeline Chart
+            var parseDate = d3.time.format("%Y").parse;
+
+            var xTime = d3.time.scale()
+                .range([0, widthline]);
+
+            var yTime = d3.scale.linear()
+                .range([heightline, 0]);
+
+            var color = d3.scale.category10();
+
+            var xAxisTime = d3.svg.axis()
+                .scale(xTime)
+                .ticks(5)
+                .orient("bottom");
+
+            var yAxisTime = d3.svg.axis()
+                .scale(yTime)
+                .orient("left");
+
+            var line = d3.svg.line()
+                .interpolate("linear")
+                .x(function(d) { return xTime(d.date); })
+                .y(function(d) { return yTime(d.value); });
+
+            // Define the div for the tooltip
+            var div = d3.select("body").append("div")   
+                .attr("class", "tooltip")               
+                .style("opacity", 0);
+
+            d3.json("data.json", function(error, data) {
+
+                //Reset Visualizations
+                overlay.setMap(null);
+                d3.select(".chart").selectAll("*").remove();
+                d3.select(".linechart").selectAll("*").remove();
+
+                var timeDataTemp = data;
+
+                /****************************************/
+                /****** MAP DATA AND VISUALIZATIONS *****/
+                /****************************************/
+                //Get Max of groups
+                //Rollup and nest data by year and provider ID
+                var maxData = data.filter(function(d) {
+                    if ( d.Year == year && d["DRG Definition"] == drg ) return d;
+                });
+
+
+                var avgMetric = d3.mean(maxData, function(d) { return d[metric]; });
+
+                //Rollup and nest data by year and provider ID
+                data = data.filter(function(d) {
+                    if ( d.Year == year && d["DRG Definition"] == drg && providerList.includes(d["Provider Name"]) ) return d;
+                });
+
+                if (sort=="desc") {
+                    data = data.sort(function (a, b) {
+                        return d3.ascending(a[metric], b[metric]);
+                    });
+                } else if (sort=="asc") {
+                    data = data.sort(function (b, a) {
+                        return d3.ascending(a[metric], b[metric]);
+                    });
+                }
+
+
+                //Time series Data
+                var providerFilter = d3.map(data, function(d){return d["Provider Name"];}).keys();
+
+                var timeData = [];
+                var timeDataTemp = timeDataTemp.filter(function(d) {
+                    if ( d["DRG Definition"] == drg && providerList.includes(d["Provider Name"]) ) return d;
+                });
+
+                yearArray.forEach(function(y) {
+                    var obj = {};
+
+                    providerFilter.forEach(function(p) {
+                        obj["Year"] = y;
+                        obj[p] = 0;
+                        timeDataTemp.forEach(function(d) {
+                            if (d.Year == y && d["Provider Name"] == p) {
+                                obj[p] = +d[metric];
+                                return;
+                            }
+                        });
+
+
+                    });
+                    
+                    timeData.push(obj);
+                });
+
+
+                // Add the container when the overlay is added to the map
+                overlay.onAdd = function() {
+                    var layer = d3.select(this.getPanes().overlayMouseTarget).append("div")
+                        .attr("class","hospitals");
+
+                    // Draw each marker as separate SVG element
+                    overlay.draw = function() {
+
+                        var projection = this.getProjection();
+
+                        // Join New Data
+                        var marker = layer.selectAll("svg")
+                            .data(data)
+                            .each(transform) // update existing markers
+                            .enter().append("svg")
+                            .each(transform)
+                            .attr("class","marker");
+
+                        // Add a circle
+                        marker.append("circle")
+                            .attr("r", function(d) {
+                                return 20*d[metric]/avgMetric;
+                            })
+                            .attr("cx", padding)
+                            .attr("cy", padding)
+                            .attr("fill","steelblue")
+                            .attr("fill-opacity","0.8")
+                            .attr("stroke","#fff")
+                            .on("mouseover", function(d) {
+                                div.transition()        
+                                    .duration(200)      
+                                    .style("opacity", 1);    
+
+                                div.html(
+                                            d["Provider Name"] 
+                                            + "<br/>" + "Provider ID: "+d["Provider Id"] 
+                                            + "<br/> Average Covered Charges: " +d["Average Covered Charges"]
+                                            + "<br/> Average Total Payments: " +d["Average Total Payments"]
+                                            + "<br/> Average Covered Charges: " +d["Average Covered Charges"]
+                                            + "<br/> Total Discharges: " +d["Total Discharges"]
+                                        )  
+                                    .style("left", (d3.event.pageX) + "px")     
+                                    .style("top", (d3.event.pageY - 28) + "px");    
+                            })
+                            .on("mouseout", function(d) {
+                                div.transition()        
+                                    .duration(500)      
+                                    .style("opacity", 0);   
+                            })
+                            .on("click", function(d) {
+                                transitionData(d["Provider Name"]);
+                            });
+
+                        // Add a label.
+                        marker.append("text")
+                            .attr("x", padding)
+                            .attr("y", padding)
+                            .attr("dy", ".31em")
+                            .attr("class","label")
+                            .text(function(d) { return d["Provider Name"]; })
+                            .style("fill", "black")
+                            .on("mouseover", function(d) {
+                                div.transition()        
+                                    .duration(200)      
+                                    .style("opacity", 1);    
+
+                                div.html(
+                                            d["Provider Name"] 
+                                            + "<br/>" + "Provider ID: "+d["Provider Id"] 
+                                            + "<br/> Average Covered Charges: " +d["Average Covered Charges"]
+                                            + "<br/> Average Total Payments: " +d["Average Total Payments"]
+                                            + "<br/> Average Covered Charges: " +d["Average Covered Charges"]
+                                            + "<br/> Total Discharges: " +d["Total Discharges"]
+                                        )  
+                                    .style("left", (d3.event.pageX) + "px")     
+                                    .style("top", (d3.event.pageY - 28) + "px");    
+                            })
+                            .on("mouseout", function(d) {
+                                div.transition()        
+                                    .duration(500)      
+                                    .style("opacity", 0);   
+                            })
+                            .on("click", function(d) {
+                                transitionData(d["Provider Name"]);
+                            });
+
+                        function transform(d) {
+                            d = new google.maps.LatLng(+d.Latitude, +d.Longitude);
+                            d = projection.fromLatLngToDivPixel(d);
+                            return d3.select(this)
+                                .style("left", (d.x - padding) + "px")
+                                .style("top", (d.y - padding) + "px");
+                        }
+
+                        function topoProjection(prj) {
+                            return function(lnglat) {
+                                ret = prj.fromLatLngToDivPixel(new google.maps.LatLng(lnglat[1],lnglat[0]))
+                                return [ret.x, ret.y]
+                            };
+                        }
+
+                    };
+                };
+
+                overlay.onRemove = function() {
+                    d3.selectAll(".hospitals").remove();
+                };
+                // Bind our overlay to the map…
+                overlay.setMap(map);
+
+
+
+                /****************************************/
+                /****** BAR DATA AND VISUALIZATIONS *****/
+                /****************************************/
+                var chart = d3.select(".chart")
+                    .attr("width", widthbar + marginbar.left + marginbar.right)
+                    .attr("height", heightbar + marginbar.top + marginbar.bottom)
+                    .append("g")
+                    .attr("transform", "translate(" + marginbar.left + "," + marginbar.top + ")");
+
+                yBar.domain(data.map(function(d) { return d["Provider Name"]; }));
+                xBar.domain([0, d3.max(data, function(d) { return d[metric]; })]);
+
+                chart.append("g")
+                    .attr("class", "y axis")
+                    .call(yAxisBar);
+
+                var bars = chart.selectAll(".bar")
+                  .data(data)
+                .enter().append("g");
+
+                bars.append("rect")
+                  .attr("class", "bar")
+                  .attr("fill", "#a1c8d7")
+                  .attr("y", function(d) { return yBar(d["Provider Name"]); })
+                  .attr("x", 1)
+                  .attr("height", yBar.rangeBand())
+                  .attr("width", function(d) { return xBar(d[metric]); })
+                  .on("click", function(d) {
+                        transitionData(d["Provider Name"]); 
+                  });
+
+                chart.append("g")
+                  .attr("class", "x axis")
+                  .attr("transform", "translate(0," + heightbar + ")")
+                  .call(xAxisBar);
+
+                bars.append("text")
+                    .attr("class", "bartext")
+                    .attr("display","none")
+                    .attr("y", function (d) {
+                        return yBar(d["Provider Name"]) + yBar.rangeBand() / 2 + 4;
+                    })
+                    .attr("x", function (d) {
+                        return xBar(d[metric]) + 3;
+                    })
+                    .text(function (d) {
+                        return d[metric];
+                    });
+
+                bars
+                .on("mouseover", function(d){
+                    d3.select(this).selectAll("text")
+                        .attr("display","inline");
+                })
+                .on("mouseout", function(d){
+                    d3.select(this).selectAll("text")
+                        .attr("display","none");
+                });
+
+
+
+                /*****************************************/
+                /****** LINE DATA AND VISUALIZATIONS *****/
+                /*****************************************/
+
+                var linechart = d3.select(".linechart")
+                    .attr("width", widthline + marginline.left + marginline.right)
+                    .attr("height", heightline + marginline.top + marginline.bottom)
+                    .append("g")
+                    .attr("transform", "translate(" + marginline.left + "," + marginline.top + ")");
+
+                color.domain(d3.keys(timeData[0]).filter(function(key) { return key !== "Year"; }));
+
+                timeData.forEach(function(d) {
+                    d.Year = parseDate(d.Year.toString());
+                });
+
+                var hospitals = color.domain().map(function(name) {
+                    return {
+                        name: name,
+                        values: timeData.map(function(d) {
+                            return {date: d.Year, value: +d[name]};
+                        })
+                    };
+                });
+
+
+                xTime.domain(d3.extent(timeData, function(d) { return d.Year; }));
+
+                yTime.domain([
+                    d3.min(hospitals, function(c) { return d3.min(c.values, function(v) { return v.value; }); }),
+                    d3.max(hospitals, function(c) { return d3.max(c.values, function(v) { return v.value; }); })
+                ]);
+
+
+                linechart.append("g")
+                  .attr("class", "x timeAxis")
+                  .attr("transform", "translate(0," + heightline + ")")
+                  .call(xAxisTime);
+
+                linechart.append("g")
+                  .attr("class", "y timeAxis")
+                  .call(yAxisTime)
+                .append("text")
+                  .attr("transform", "rotate(-90)")
+                  .attr("y", 6)
+                  .attr("dy", ".71em")
+                  .style("text-anchor", "end")
+                  .text(metric);
+
+                var hospital = linechart.selectAll(".hospital")
+                  .data(hospitals)
+                .enter().append("g")
+                  .attr("class", "hospital");
+
+                hospital.append("path")
+                  .attr("class", "line")
+                  .attr("fill","none")
+                  .attr("stroke-width","1.5")
+                  .attr("d", function(d) {return line(d.values); })
+                  .style("stroke", function(d) {  return color(d.name); });
+
+                hospital.append("text")
+                  .datum(function(d) { return {name: d.name, value: d.values[d.values.length - 1]}; })
+                  .attr("transform", function(d) { return "translate(" + xTime(d.value.date) + "," + yTime(d.value.value) + ")"; })
+                  .attr("x", 3)
+                  .attr("dy", ".35em")
+                  .attr("class","label")
+                  .text(function(d) { return d.name; })
+                  .on("click", function(d) {
+                    transitionData(d.name);
+                  });;
+
+
+            });
+        }
+
+
+        // Pass the checkbox name to the function
+        function getCheckedBoxes(chkboxName) {
+            var checkboxes = document.getElementsByName(chkboxName);
+            var checkboxesChecked = [];
+            // loop over them all
+            for (var i=0; i<checkboxes.length; i++) {
+                // And stick the checked ones onto an array...
+                if (checkboxes[i].checked) {
+                    checkboxesChecked.push(checkboxes[i].value);
+                }
+            }
+            // Return the array if it is non-empty, or null
+            return checkboxesChecked.length > 0 ? checkboxesChecked : null;
+        }
+
+        //Set color scale for income in zip codes
+        function styleFeature(feature) {
+            var low = [5, 69, 54];  // color of smallest datum
+            var high = [151, 83, 34];   // color of largest datum
+
+            // delta represents where the value sits between the min and max
+            var delta = (feature.getProperty(censusfeature) - minLegend) /
+                (maxLegend - minLegend);
+
+            var color = [];
+            for (var i = 0; i < 3; i++) {
+              // calculate an integer color based on the delta
+              color[i] = (high[i] - low[i]) * delta + low[i];
+            }
+
+            // determine whether to show this shape or not
+            var showRow = true;
+            if (feature.getProperty(censusfeature) == null || feature.getProperty(censusfeature) == 0 ||
+                isNaN(feature.getProperty(censusfeature))) {
+              showRow = false;
+            }
+
+            var outlineWeight = 0.5, zIndex = 1;
+            if (feature.getProperty('state') === 'hover') {
+              outlineWeight = zIndex = 2;
+            }
+
+            return {
+              strokeWeight: outlineWeight,
+              strokeColor: '#fff',
+              zIndex: zIndex,
+              fillColor: 'hsl(' + color[0] + ',' + color[1] + '%,' + color[2] + '%)',
+              fillOpacity: 0.75,
+              visible: showRow
+            };
+        }
+
+
+        function mouseInToRegion(e) {
+            // set the hover state so the setStyle function can change the border
+            e.feature.setProperty('state', 'hover');
+
+            var percent = (e.feature.getProperty(censusfeature) - minLegend) /
+            (maxLegend - minLegend) * 100;
+
+            // update the label
+            document.getElementById('data-caret').style.display = 'block';
+            document.getElementById('data-caret').style.paddingLeft = percent + '%';
+        }
+
+        function mouseOutOfRegion(e) {
+            // reset the hover state, returning the border to normal
+            e.feature.setProperty('state', 'normal');
+        }
+
+
+        function calculateAndDisplayRoute(directionsService, directionsDisplay, request) {
+
+            directionsService.route(request, function(response, status) {
+                if (status === 'OK') {
+                    console.log("test");
+                    directionsDisplay.setDirections(response);
+                    var route = response.routes[0];
+                    directionsDisplay.setMap(map);
+                } 
+            });
+        }
+
+
+        function drawPath(event) {
+
+            origin = event.latLng.lat()+', '+event.latLng.lng();
+
+            var request = {
+                origin: origin,
+                destination: '',
+                travelMode : google.maps.DirectionsTravelMode.DRIVING
+            };
+            var distance = 1000000;
+
+            provider_address.forEach(function(d) {
+                var tempDistance = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(event.latLng.lat(),event.latLng.lng()), new google.maps.LatLng(d.Latitude, d.Longitude));
+                if (tempDistance < distance) {
+                    distance = tempDistance;
+                    destination = d.Latitude+', '+d.Longitude;
+                }
+            });
+
+            request.destination = destination;
+
+            calculateAndDisplayRoute(directionsService, directionsDisplay, request);
+        }
+
+        function filterFunction(e) {
+
+          var input, filter, i;
+          input = document.getElementById("search");
+          filter = input.value.toUpperCase();
+          div = document.getElementById("drgs");
+          option = div.getElementsByTagName("option");
+          for (i = 0; i < option.length; i++) {
+            if (option[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+              option[i].selected = true;
+            } else {
+              option[i].selected = false;
+            }
+          }
+
+          if (e.keyCode == 13) {
+            updateData();
+          }
+        }
+
+        function updateCensus() {
+            censusfeature = document.getElementById('census').value;
+            if (censusfeature == "income") {maxLegend=160000;minLegend=20000;}
+            else if (censusfeature == "age") {maxLegend=55; minLegend=20;}
+            else if (censusfeature == "population") {maxLegend=60000;minLegend=1000;}
+            map.data.setStyle(styleFeature);
+            document.getElementById("maxLegend").innerHTML = maxLegend;
+            document.getElementById("minLegend").innerHTML = minLegend;
+        }
+
+    </script>
+
+  </body>
+</html>
+      
